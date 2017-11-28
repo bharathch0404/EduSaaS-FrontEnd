@@ -1,0 +1,97 @@
+<script>
+	$(document).ready(function(){
+			url=window.location+"";
+			arr = url.split("/");
+			payload=localStorage.getItem("token");
+			$("#studentClick").click(function(e){
+				e.preventDefault();
+				data = $('#studentForm').serialize();
+				$.ajax({
+					type: "POST",
+					url: "https://edu-sass.herokuapp.com/student",
+					data: data,
+					headers: {
+						'x-access-token' : payload 
+					},
+					success: function (msg) {
+                                    $.dialog({
+                                        title: 'Status!',
+                                        content: msg.message,
+                                        buttons: {
+                                            aRandomButton: function () {
+                                                // this will be removed.
+                                            }
+                                        }
+                                    });
+                                			
+					},
+					error: function (msg) {
+						console.log(msg);
+					}
+				});
+			});
+		});
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+<div class="row">
+                   <div class="col-md-4">
+						<div class="container" id="student">
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2">
+									<form role="form" id="studentForm" method="POST">
+
+										<legend class="text-center">Add Students</legend>
+
+										<fieldset>
+	
+											<div class="form-group col-md-6">
+												<label for="firstname">First name</label>
+												<input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name">
+											</div>
+
+											<div class="form-group col-md-6">
+												<label for="lastname">Last name</label>
+												<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last Name">
+											</div>
+
+											<div class="form-group col-md-12">
+												<label for="">Email</label>
+												<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+											</div>
+
+											<div class="form-group col-md-7">
+												<label for="password">Password</label>
+												<input type="password" class="form-control" name="password" id="password" placeholder="Password">
+											</div>
+											
+											<div class="form-group col-md-7">
+												<label for="branch_id">Branch</label>
+												<select class="form-control" name="branch_id" id="branch_id" placeholder="Branch">
+												</select>
+											</div>
+											
+											<div class="form-group col-md-7">
+												<label for="current_sem">Semester</label>
+												<input type="number" min="1" max="8" step="1" class="form-control" name="current_sem" id="current_sem" placeholder="Semester">
+											</div>
+											
+											 <div class="form-group col-md-7">
+												<label for="current_gpa">CGPA</label>
+												<input type="number" min="0" max="10" step="0.01" class="form-control" name="current_gpa" id="current_gpa" placeholder="CGPA">
+											</div>
+											
+										</fieldset>
+										<div class="form-group">
+											<div class="col-md-12">
+												<button id="studentClick" type="submit" class="btn btn-primary" >
+													Register
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>

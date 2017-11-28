@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<style>
+		.disableClick{
+			display: block;
+			pointer-events: none;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Admin</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+</head>
+<body ng-app="myApp" controller="myCtrl">
+
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#/!" class="simple-text">
+                    EduSaaS
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li id="student" ng-mouseover="showStudentMenu(event)">
+                    <a href="" class="disableClick">
+                        <i class="pe-7s-user"></i>
+						<p>Students</p>
+					</a>
+					
+                </li>
+				<a href="#!addStudent">
+					<p>Add Students</p>			
+				</a>
+				<a href="#!viewStudent">
+						<p>View Students</p>
+				</a>
+				<li id="teacher">
+                    <a href="" class="disableClick">
+                        <i class="pe-7s-user"></i>
+                        <p>Teachers</p>
+                    </a>
+                </li>
+				<a href="#!addTeacher">
+					<p>Add Teachers</p>
+				</a>
+                <a href="#!viewTeacher">
+					<p>View Teachers</p>
+				</a>	
+                <li>
+                    <a href="" class="disableClick">
+                        <i class="pe-7s-note2"></i>
+                        <p>Classes</p>
+                    </a>
+                </li>
+				<li>
+                    <a href="" class="disableClick">
+                        <i class="pe-7s-bell"></i>
+                        <p>Messages</p>
+                    </a>
+                </li>
+    	</div>
+    </div>
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+								<p class="hidden-lg hidden-md">Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-globe"></i>
+                                    <b class="caret hidden-lg hidden-md"></b>
+									<p class="hidden-lg hidden-md">
+										5 Notifications
+										<b class="caret"></b>
+									</p>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                              </ul>
+                        </li>
+                        <li>
+                           <a href="">
+                                <i class="fa fa-search"></i>
+								<p class="hidden-lg hidden-md">Search</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                           <a href="">
+                               <p>Account</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+										Dropdown
+										<b class="caret"></b>
+									</p>
+
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                        </li>
+                        <li>
+                            <a href="../index.html">
+                                <p>Log out</p>
+                            </a>
+                        </li>
+						<li class="separator hidden-lg"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+		
+		
+		<div class="content">
+			<div class="container-fluid">
+				<div ng-view>
+				</div>
+			</div>
+		</div>
+			
+		
+		
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="../index.html">
+                                Home
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                   EduSaaS &copy; <script>document.write(new Date().getFullYear())</script>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+</div>
+	
+
+</body>
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Charts Plugin -->
+	<script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+    <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+	<script src="assets/js/demo.js"></script>
+
+	
+
+	<script>
+		var app = angular.module("myApp", ["ngRoute"]);
+		app.config(function($routeProvider) {
+			$routeProvider
+			.when("/", {
+				templateUrl : "main.htm",
+			})
+			.when("/addStudent", {
+				templateUrl : "addStudent.htm",
+				controller : "addStudent"
+			})
+			.when("/viewStudent", {
+				templateUrl : "viewStudent.htm",
+				controller : "viewStudent"
+			})
+			.when("/addTeacher", {
+				templateUrl : "addTeacher.htm",
+				controller : "addTeacher"
+			})
+			.when("/viewTeacher", {
+				templateUrl : "viewTeacher.htm",
+				controller : "viewTeacher"
+			});
+		});
+		app.controller("addStudent", function ($scope,$window,$http) {
+			url = $window.location.href;
+			arr = url.split("/");
+			payload="";
+			angular.forEach(arr, function(value, key) {
+				index= value.indexOf("payLoad");
+				if(index >= 0)
+				{
+					temp = value.substr(index).split("=")[1];
+					tempIndex = temp.indexOf("#!");
+					payload = temp.substr(0,tempIndex);
+				}
+			});
+			$http({
+				method : "GET",
+				url : "https://edu-sass.herokuapp.com/class/branch",
+				headers: {
+							'x-access-token' : payload
+				}
+			}).then(function mySuccess(response) {
+				data = response.data;
+				if(data.status=="success")
+				{
+					required = data.payload;
+					angular.forEach(required, function(value, key) {
+						//console.log(value);
+						angular.element("#branch_id").append("<option value= "+ value.branch_id +" >"+ value.name +"</option>");
+					});
+				}
+			}, function myError(response) {
+				console.log(response);
+			});
+		});
+		
+		app.controller("viewStudent", function ($scope) {
+			$scope.msg = "I love London";
+		});
+		app.controller("addTeacher", function ($scope,$window,$http) {
+			url = $window.location.href;
+			arr = url.split("/");
+			payload="";
+			angular.forEach(arr, function(value, key) {
+				index= value.indexOf("payLoad");
+				if(index >= 0)
+				{
+					temp = value.substr(index).split("=")[1];
+					tempIndex = temp.indexOf("#!");
+					payload = temp.substr(0,tempIndex);
+				}
+			});
+			$http({
+				method : "GET",
+				url : "https://edu-sass.herokuapp.com/class/branch",
+				headers: {
+							'x-access-token' : payload
+				}
+			}).then(function mySuccess(response) {
+				data = response.data;
+				if(data.status=="success")
+				{
+					required = data.payload;
+					angular.forEach(required, function(value, key) {
+						//console.log(value);
+						angular.element("#branch_id").append("<option value= "+ value.branch_id +" >"+ value.name +"</option>");
+					});
+				}
+			}, function myError(response) {
+				console.log(response);
+			});
+		});
+		app.controller("viewTeacher", function ($scope) {
+			$scope.msg = "I love Paris";
+		});
+</script>
+	
+	
+	<script>
+		$(document).ready(function(){
+			var returndata;
+			url=window.location+"";
+			arr = url.split("/");
+			data = arr[4].split("?")[1].split("&");
+			var email = data[0].split("=")[1];
+			var payload = data[1].split("=")[1];
+			demo.initChartist();
+        	$.notify({
+            	icon: 'pe-7s-gift',
+            	message: "Welcome "+email+"!"
+            },{
+                type: 'info',
+                timer: 4000
+            });
+		});
+	</script>
+	
+</html>

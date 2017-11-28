@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+			url=window.location+"";
+			arr = url.split("/");
+			payload=localStorage.getItem("token");
+			$("#branchClick").click(function(e){
+				e.preventDefault();
+				data = $('#branchForm').serialize();
+				$.ajax({
+					type: "POST",
+					url: "https://edu-sass.herokuapp.com/class/branch",
+					data: data,
+					headers: {
+						'x-access-token' : payload 
+					},
+					success: function (msg) {
+						$.dialog({
+                                        title: 'Status!',
+                                        content: msg.message,
+                                        buttons: {
+                                            aRandomButton: function () {
+                                                // this will be removed.
+                                            }
+                                        }
+                                    });			
+					},
+					error: function (msg) {
+						console.log(msg);
+					}
+				});
+			});
+		});
+</script>
+<div class="row">
+                    <div class="col-md-4">
+						<div class="container" id="branch">
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2">
+									<form role="form" id="branchForm" method="POST">
+
+										<legend class="text-center">Add branchs</legend>
+										<fieldset>
+											<div class="form-group col-md-6">
+												<label for="firstname">Branch Name</label>
+												<input type="text" class="form-control" name="name" id="name" placeholder="Branch Name">
+											</div>
+										</fieldset>
+										<div class="form-group">
+											<div class="col-md-12">
+												<button type="submit" id="branchClick"  class="btn btn-primary">
+													Register
+												</button>
+											</div>
+										</div>
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
